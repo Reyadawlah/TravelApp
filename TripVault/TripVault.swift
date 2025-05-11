@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct TravelAppApp: App {
+struct TripVault: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
